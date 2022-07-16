@@ -6,6 +6,8 @@ using System;
 [RequireComponent(typeof(Rigidbody2D),typeof(InputManager))]
 public class MainCharacterMovement : MonoBehaviour
 {   
+
+    private MousePosition2D mousePosition;
     private Rigidbody2D rigidBody;
     private InputManager inputManager;
     public Animator animator;
@@ -26,6 +28,7 @@ public class MainCharacterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        mousePosition = GetComponentInChildren<MousePosition2D>();
         rigidBody = GetComponent<Rigidbody2D>();
         inputManager = GetComponent<InputManager>();
         animator = GetComponent<Animator>();
@@ -36,17 +39,17 @@ public class MainCharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Speed",Mathf.Abs(Input.GetAxis("Horizontal")*speed));
-        animator.SetFloat("Speed",Mathf.Abs(Input.GetAxis("Vertical")*speed));
+        
+        animator.SetFloat("Speed",Mathf.Abs(Input.GetAxis("Vertical")*speed + Mathf.Abs(Input.GetAxis("Horizontal")*speed)));
+        
         if(!blockMovement){
             
             if(Input.GetAxis("Horizontal") != 0f){
-                transform.Translate(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime,0f,0f));
-                if(Input.GetAxis("Horizontal") > 0f && !isFacingRight){
-                    Flip();
+                if (isFacingRight){
+                    transform.Translate(new Vector3(Input.GetAxis("Horizontal")  * speed * Time.deltaTime,0f,0f));
                 }
-                else if(Input.GetAxis("Horizontal") < 0f && isFacingRight){
-                    Flip();
+                else{
+                    transform.Translate(new Vector3(Input.GetAxis("Horizontal") * -1  * speed * Time.deltaTime,0f,0f));
                 }
             }
             if(Input.GetAxis("Vertical") != 0f){
@@ -57,12 +60,24 @@ public class MainCharacterMovement : MonoBehaviour
         }
             
     }
-    
+    void FixedUpdate(){
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (((mouseWorldPosition.x - transform.position.x) < 0 && isFacingRight) || ((mouseWorldPosition.x - transform.position.x) > 0 && !isFacingRight))
+        {
+            Flip();
+        }
+    }
     void Flip(){
         isFacingRight = !isFacingRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        if (isFacingRight)
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
     }
     
 }

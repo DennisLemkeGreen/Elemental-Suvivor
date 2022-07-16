@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BulletDamage : MonoBehaviour
 {
+    public string elementType;
+    public string enemyElementType;
+    public string gunTypes;
+    public string rarity;
     [SerializeField] private float damageMultiplier;
     Dictionary <string, float> iceTypeEffectiveness = new Dictionary<string, float>()
     {
