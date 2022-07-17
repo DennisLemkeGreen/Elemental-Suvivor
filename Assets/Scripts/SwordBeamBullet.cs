@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SwordBeamBullet : MonoBehaviour
 {
+    private float timeToLive = 3.0f;
     // detect unity tigger
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,9 +20,14 @@ public class SwordBeamBullet : MonoBehaviour
             }
 
         }
-        if(colision.gameObject.tag == "GameBoundaries"){
-            Destroy(gameObject);
+        if(collision.gameObject.tag == "GameBoundaries")
+        {
+            Destroy(this);
         }
 
+    }
+    void Start()
+    {
+        Destroy(this.gameObject, timeToLive);
     }
 }
