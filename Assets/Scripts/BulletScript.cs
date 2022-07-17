@@ -14,8 +14,9 @@ public class BulletScript : MonoBehaviour
                 ScoreManager.instance.AddPoint();
                 life.TakeDamage(1); // mudar para o dano depender do tipo de arma
             }
-            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);    
-            Destroy(effect, 0.5f);
+
+            GameObject effect = Instantiate(hitEffect, transform.position, new Quaternion(0,0,0,0));    // mudar para o dano depender do tipo de arma
+            Destroy(effect, 0.15f);
             Destroy(gameObject);
         }
 

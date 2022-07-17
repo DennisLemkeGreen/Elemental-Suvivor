@@ -6,7 +6,7 @@ using System;
 [RequireComponent(typeof(Rigidbody2D),typeof(InputManager))]
 public class MainCharacterMovement : MonoBehaviour
 {   
-
+    public Camera camera;
     private MousePosition2D mousePosition;
     private Rigidbody2D rigidBody;
     private InputManager inputManager;
@@ -41,12 +41,12 @@ public class MainCharacterMovement : MonoBehaviour
     {
         
         animator.SetFloat("Speed",Mathf.Abs(Input.GetAxis("Vertical")*speed + Mathf.Abs(Input.GetAxis("Horizontal")*speed)));
-        
         if(!blockMovement){
             
             if(Input.GetAxis("Horizontal") != 0f){
                 if (isFacingRight){
                     transform.Translate(new Vector3(Input.GetAxis("Horizontal")  * speed * Time.deltaTime,0f,0f));
+                    
                 }
                 else{
                     transform.Translate(new Vector3(Input.GetAxis("Horizontal") * -1  * speed * Time.deltaTime,0f,0f));
@@ -58,6 +58,7 @@ public class MainCharacterMovement : MonoBehaviour
             }
             
         }
+        camera.transform.position = new Vector3(transform.position.x + 0.5f,transform.position.y - 0.25f,-10);
             
     }
     void FixedUpdate(){

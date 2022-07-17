@@ -18,7 +18,7 @@ public class MousePosition2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position - new Vector3(0f,-0.5f,10);
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
         if ((difference.x < 0 && _facingRight) || (difference.x > 0 && !_facingRight))
