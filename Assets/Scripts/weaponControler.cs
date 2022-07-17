@@ -4,87 +4,153 @@ using UnityEngine;
 
 public class weaponControler : MonoBehaviour
 {
+    /* ORDEM DOS VETORES
+     * 1. fogo
+     * 2. agua
+     * 3. grama
+     * 4. vapor
+     * 5. veneno
+     * 6. gelo
+         */
 
-    [SerializeField] private  GameObject iceBallPrefab;
-    [SerializeField] private  GameObject fireBallPrefab;
-    [SerializeField] private  GameObject waterBallPrefab;
-    [SerializeField] private  GameObject poisonBallPrefab;
-    [SerializeField] private  GameObject grassBallPrefab;
-    [SerializeField] private  GameObject vaporBallPrefab;
+    /* ORDEM DAS ARMAS
+     * 1. espadas
+     * 2. metralhadora
+     * 3. shuriken
+     * 4. lanca granadas
+     * 5. sniper
+     * 6. shotgun
+     * 7. bazuka
+     * 8. lanca chamas
+         */
+    
+    [Header("Projectile Types")]
+    [SerializeField] private Sprite[] Beam = new Sprite[6];
+    [SerializeField] private Sprite[] Rocket = new Sprite[6];
+    [SerializeField] private Sprite[] Bullet = new Sprite[6];
+    [SerializeField] private Sprite[] Grenade = new Sprite[6];
+    [SerializeField] private Sprite[] Star = new Sprite[6];
+    [SerializeField] private Sprite[] Cloud = new Sprite[6];
 
-    [SerializeField] private  GameObject iceFlamePrefab;
-    [SerializeField] private  GameObject fireFlamePrefab;
-    [SerializeField] private  GameObject waterFlamePrefab;
-    [SerializeField] private  GameObject poisonFlamePrefab;
-    [SerializeField] private  GameObject grassFlamePrefab;
-    [SerializeField] private  GameObject vaporFlamePrefab;
+    [Header("Weapon Types")]
+    [SerializeField] private Sprite[] Sword = new Sprite[6];
+    [SerializeField] private Sprite MachineGun;
+    [SerializeField] private Sprite Shuriken;
+    [SerializeField] private Sprite GrenadeLauncher;
+    [SerializeField] private Sprite Sniper;
+    [SerializeField] private Sprite Shotgun;
+    [SerializeField] private Sprite RocketLauncher;
+    [SerializeField] private Sprite FlameThrower;
 
-    [SerializeField] private  GameObject iceMissilePrefab;
-    [SerializeField] private  GameObject fireMissilePrefab;
-    [SerializeField] private  GameObject waterMissilePrefab;
-    [SerializeField] private  GameObject poisonMissilePrefab;
-    [SerializeField] private  GameObject grassMissilePrefab;
-    [SerializeField] private  GameObject vaporMissilePrefab;
+    [Header("Base Prefab")]
+    [SerializeField] private GameObject BeamPrefab;
+    [SerializeField] private GameObject RocketPrefab;
+    [SerializeField] private GameObject BulletPrefab;
+    [SerializeField] private GameObject GrenadePrefab;
+    [SerializeField] private GameObject StarPrefab;
+    [SerializeField] private GameObject CloudPrefab;
 
-    [SerializeField] private  GameObject iceGranadePrefab;
-    [SerializeField] private  GameObject fireGranadePrefab;
-    [SerializeField] private  GameObject waterGranadePrefab;
-    [SerializeField] private  GameObject poisonGranadePrefab;
-    [SerializeField] private  GameObject grassGranadePrefab;
-    [SerializeField] private  GameObject vaporGranadePrefab;
+    public int weaponType { get; private set; } = 0;
+    public int elementType { get; private set; } = 0;
+    public Sprite currentWeapon { get; private set; }
+    public Sprite currentProjectile { get; private set; }
 
-    [SerializeField] private  GameObject iceKatanaPrefab;
-    [SerializeField] private  GameObject fireKatanaPrefab;
-    [SerializeField] private  GameObject waterKatanaPrefab;
-    [SerializeField] private  GameObject poisonKatanaPrefab;
-    [SerializeField] private  GameObject grassKatanaPrefab;
-    [SerializeField] private  GameObject vaporKatanaPrefab;
-
-    // public GameObject currentWeapon;
-    // public GameObject currentBullet;
-    // public GameObject currentBulletType;
-    // public GameObject currentRarity;
-    // public GameObject currentDamage;
-
-    public enum WeaponType
+    // Determines all variables to update a prefab
+    public void SetArms(int element, int weapon)
     {
-        Shotgun,
-        Katana,
-        Machinegun,
-        Grandelauncher,
-        Missilelauncher,
-        Sniper
-    }
-    public enum bulletType
-    {
-        Flame,
-        Ball,
-        Missile,
-        Granade,
-        KatanaSlash
-    }
-    [System.Serializable]
-    public class weapon{
-        public string weaponType;
-        public float attackSpeed;
-        public float attackDamage;
-        public string weaponRarity;
-    }
-    [System.Serializable]
-    public class bullet{
-        public string bulletType;
-        public GameObject bulletPrefab;
-    }
-   
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        if((element >= 6 || element < 0) || (weapon >= 8 || weapon < 0)){
+            Debug.Log("Invalid element or weapon type!");
+        }
+
+        elementType = element;
+        weaponType = weapon;
+
+        switch (weaponType)
+        {
+            case 0:
+                currentWeapon = Sword[elementType];
+                currentProjectile = Beam[elementType];
+                BeamPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 1:
+                currentWeapon = MachineGun;
+                currentProjectile = Bullet[elementType];
+                BulletPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 2:
+                currentWeapon = Shuriken;
+                currentProjectile = Star[elementType];
+                StarPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 3:
+                currentWeapon = GrenadeLauncher;
+                currentProjectile = Grenade[elementType];
+                GrenadePrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 4:
+                currentWeapon = Sniper;
+                currentProjectile = Bullet[elementType];
+                BulletPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 5:
+                currentWeapon = Shotgun;
+                currentProjectile = Bullet[elementType];
+                BulletPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 6:
+                currentWeapon = RocketLauncher;
+                currentProjectile = Rocket[elementType];
+                RocketPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 7:
+                currentWeapon = FlameThrower;
+                currentProjectile = Cloud[elementType];
+                CloudPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+        }
+
+        return;
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject GetProjectilePrefab()
     {
-        
+        switch (weaponType)
+        {
+            case 0:
+                return BeamPrefab;
+
+            case 1:
+                return BulletPrefab;
+
+            case 2:
+                return StarPrefab;
+
+            case 3:
+                return GrenadePrefab;
+
+            case 4:
+                return BulletPrefab;
+
+            case 5:
+                return BulletPrefab;
+
+            case 6:
+                return RocketPrefab;
+
+            case 7:
+                return CloudPrefab;
+
+        }
+
+        return BeamPrefab;
     }
+
 }

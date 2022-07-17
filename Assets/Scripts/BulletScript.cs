@@ -5,6 +5,13 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public GameObject hitEffect;
+    SpriteRenderer sp;
+
+    private void Start()
+    {
+        sp = gameObject.GetComponent<SpriteRenderer>();
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag != "Player")
@@ -21,4 +28,11 @@ public class BulletScript : MonoBehaviour
         }
 
     }
+
+    public void UpdateSprite(Sprite newSprite)
+    {
+        sp.sprite = newSprite;
+    }
+
+
 }
