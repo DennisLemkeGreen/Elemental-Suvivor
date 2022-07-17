@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3669059338037005406}
   - component: {fileID: 3669059338037005405}
   - component: {fileID: 3323309399257324895}
+  - component: {fileID: 3963204769644718848}
   m_Layer: 0
   m_Name: swordbeamfire
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ef9646ce0a239f84ba7724467e86ffd9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69cf08998ddfb5249ba2d9aa539e400d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,3 +147,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280c40bade80b59478ceb725f1f30fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 0}
+  damage: 2
+--- !u!114 &3963204769644718848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669059338037005404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cc4175af6821a459fc5f76830a409e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: 0
+  damage: 0
+  splashRange: 0

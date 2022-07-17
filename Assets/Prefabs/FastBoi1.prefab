@@ -79,7 +79,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1.37
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 3.5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 289676887666524083}
   - component: {fileID: 289676887666524082}
   - component: {fileID: 289676887666524081}
+  - component: {fileID: 3413115579479183035}
   - component: {fileID: 289676887666524045}
   - component: {fileID: 289676887666524044}
   - component: {fileID: 289676887666524046}
@@ -228,6 +229,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3413115579479183035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289676887666524080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18388b75593f66b45a957447e1094a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 50
+  element: 2
 --- !u!50 &289676887666524045
 Rigidbody2D:
   serializedVersion: 4

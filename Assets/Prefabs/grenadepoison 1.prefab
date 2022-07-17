@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7100782975553997159}
   - component: {fileID: 3385391763958139342}
   - component: {fileID: 6237503921116146112}
+  - component: {fileID: 8260222800217792052}
   m_Layer: 0
-  m_Name: grenadepoison
-  m_TagString: Untagged
+  m_Name: grenadepoison 1
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dde245c39cdf7cf44b522cf29306982e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28d43228bd376b049812b460a94fd910, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,3 +138,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 6951256282316352204, guid: d73ceae73ed987346800b5bd7f0958a8, type: 3}
+  damage: 2
+--- !u!114 &8260222800217792052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5382208632037827326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cc4175af6821a459fc5f76830a409e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: 0
+  damage: 0
+  splashRange: 0

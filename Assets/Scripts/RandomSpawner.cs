@@ -33,6 +33,11 @@ public class RandomSpawner : MonoBehaviour
         
     }
 
+    public void DecreaseCount()
+    {
+        currentEnemies--;
+    }
+
     void SpawnEnemy(int enemyIndex)
     {
         if(currentEnemies < maxEnemies)

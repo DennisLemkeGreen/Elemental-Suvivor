@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7873000736669788528}
   - component: {fileID: 7873000736669788543}
   - component: {fileID: 7873000736669788542}
+  - component: {fileID: 705781213574142086}
   - component: {fileID: 7873000736669788530}
   - component: {fileID: 7873000736669788529}
   - component: {fileID: 7873000736669788531}
@@ -110,6 +111,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &705781213574142086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7873000736669788541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18388b75593f66b45a957447e1094a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  element: 0
 --- !u!61 &7873000736669788530
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,7 +139,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25366306, y: -0.4052912}
+  m_Offset: {x: 0.17072415, y: -0.4052912}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +150,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0318251, y: 1.1894176}
+  m_Size: {x: 1.3786616, y: 1.1894176}
   m_EdgeRadius: 0
 --- !u!50 &7873000736669788529
 Rigidbody2D:
@@ -148,7 +164,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 999
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -182,9 +198,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.34841752, y: 0.25578642}
+  m_Offset: {x: 0.34841752, y: 0.3613454}
   serializedVersion: 2
-  m_Radius: 0.47680593
+  m_Radius: 0.5823649
 --- !u!114 &7873000736669788533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +228,7 @@ GameObject:
   - component: {fileID: 7873000737838060685}
   m_Layer: 0
   m_Name: BigBoi3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,7 +293,7 @@ MonoBehaviour:
   radius: 0.84
   height: 1.37
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 2
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2

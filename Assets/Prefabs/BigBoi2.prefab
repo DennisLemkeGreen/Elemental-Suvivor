@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3210192053399525121}
   - component: {fileID: 3210192053399525133}
   - component: {fileID: 3210192053399525134}
+  - component: {fileID: 4722280822276837877}
   - component: {fileID: 3210192053399525131}
   - component: {fileID: 3210192053399525130}
   m_Layer: 0
@@ -121,7 +122,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 999
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -156,6 +157,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2900105, y: 1.337343}
   m_EdgeRadius: 0
+--- !u!114 &4722280822276837877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3210192053399525122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18388b75593f66b45a957447e1094a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  element: 1
 --- !u!58 &3210192053399525131
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -199,7 +215,7 @@ GameObject:
   - component: {fileID: 3210192054146601304}
   m_Layer: 0
   m_Name: BigBoi2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,7 +280,7 @@ MonoBehaviour:
   radius: 0.84
   height: 1.37
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 2
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2

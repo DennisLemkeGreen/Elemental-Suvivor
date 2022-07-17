@@ -41,6 +41,7 @@ public class weaponControler : MonoBehaviour
     [SerializeField] private Sprite Shotgun;
     [SerializeField] private Sprite RocketLauncher;
     [SerializeField] private Sprite FlameThrower;
+    [SerializeField] private Sprite Unknown;
 
     [Header("Base Prefab")]
     [SerializeField] private GameObject BeamPrefab;
@@ -50,10 +51,14 @@ public class weaponControler : MonoBehaviour
     [SerializeField] private GameObject StarPrefab;
     [SerializeField] private GameObject CloudPrefab;
 
+    [Header("Element Icons")]
+    [SerializeField] private Sprite[] elements = new Sprite[7];
+
     public int weaponType { get; private set; } = 0;
     public int elementType { get; private set; } = 0;
     public Sprite currentWeapon { get; private set; }
     public Sprite currentProjectile { get; private set; }
+    public Sprite currentElement { get; private set; }
 
     // Determines all variables to update a prefab
     public void SetArms(int element, int weapon)
@@ -64,6 +69,73 @@ public class weaponControler : MonoBehaviour
 
         elementType = element;
         weaponType = weapon;
+        currentElement = elements[elementType];
+
+        switch (weaponType)
+        {
+            case 0:
+                currentWeapon = Sword[elementType];
+                currentProjectile = Beam[elementType];
+                BeamPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 1:
+                currentWeapon = MachineGun;
+                currentProjectile = Bullet[elementType];
+                BulletPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 2:
+                currentWeapon = Shuriken;
+                currentProjectile = Star[elementType];
+                StarPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 3:
+                currentWeapon = GrenadeLauncher;
+                currentProjectile = Grenade[elementType];
+                GrenadePrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 4:
+                currentWeapon = Sniper;
+                currentProjectile = Bullet[elementType];
+                BulletPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 5:
+                currentWeapon = Shotgun;
+                currentProjectile = Bullet[elementType];
+                BulletPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 6:
+                currentWeapon = RocketLauncher;
+                currentProjectile = Rocket[elementType];
+                RocketPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+            case 7:
+                currentWeapon = FlameThrower;
+                currentProjectile = Cloud[elementType];
+                CloudPrefab.GetComponent<SpriteRenderer>().sprite = currentProjectile;
+                break;
+
+        }
+
+        return;
+    }
+
+    public void PreviewArms(int element, int weapon)
+    {
+        if ((element >= 6 || element < 0) || (weapon >= 8 || weapon < 0))
+        {
+            Debug.Log("Invalid element or weapon type!");
+        }
+
+        elementType = element;
+        weaponType = weapon;
+        currentElement = elements[elementType];
 
         switch (weaponType)
         {

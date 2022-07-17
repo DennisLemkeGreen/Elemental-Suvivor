@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3247328366001106889}
   - component: {fileID: 3247328366001106894}
   - component: {fileID: 3247328366001106895}
+  - component: {fileID: 1425189452495794808}
   - component: {fileID: 3247328366001106891}
   - component: {fileID: 3247328366001106888}
   - component: {fileID: 3247328366001106890}
@@ -108,6 +109,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1425189452495794808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247328366001106892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18388b75593f66b45a957447e1094a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 50
+  element: 1
 --- !u!61 &3247328366001106891
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -247,7 +263,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1.37
   canMove: 1
-  maxSpeed: 3
+  maxSpeed: 3.5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2

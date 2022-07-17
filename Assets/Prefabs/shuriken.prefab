@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 588949357146929423}
   - component: {fileID: 5870649187815712588}
   - component: {fileID: 8792413909773173779}
+  - component: {fileID: 8293230889752396056}
   m_Layer: 0
   m_Name: shuriken
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +100,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -136,4 +137,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444d7b0489562814686809dcffd52a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 6951256282316352204, guid: d73ceae73ed987346800b5bd7f0958a8, type: 3}
+  hitEffect: {fileID: 5679566204816065153, guid: 5cd6879e853962c47a669684f8740d4d, type: 3}
+  damage: 2
+--- !u!114 &8293230889752396056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928636407772223163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cc4175af6821a459fc5f76830a409e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: 0
